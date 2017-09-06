@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Ticket;
+use App\Models\User;
 
 class TicketController extends Controller
 {
@@ -11,9 +13,10 @@ class TicketController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $tickets = Ticket::orderBy('id','DESC');
+        return view('tickets.index',compact('tickets'));
     }
 
     /**
@@ -23,7 +26,7 @@ class TicketController extends Controller
      */
     public function create()
     {
-        //
+        return view('tickets.create');
     }
 
     /**
@@ -34,7 +37,31 @@ class TicketController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'fname' => 'required',
+            'lname' => 'required',
+            'email' => 'required',
+            'os' => 'required',
+            'issue' => 'required',
+            'description' => 'required',
+        ]);
+        $allRequest = $request->all();
+
+        $user = new User;
+        $user->fname = $allRequest['fname'];
+        $user->lname = $allRequest['lname'];
+        $user->email = $allRequest['email'];
+        $user->save();
+
+        $tickets = new Ticket;
+        $tickets->userID = $user->id;
+        $tickets->os = $allRequest['os'];
+        $tickets->issue = $allRequest['issue'];
+        $tickets->description = $allRequest['description'];
+        $tickets->status = 'Pending';
+        $tickets->save();
+
+        return redirect()->route('tickets.create') ->with('success','Ticket created successfully');
     }
 
     /**
@@ -45,7 +72,8 @@ class TicketController extends Controller
      */
     public function show($id)
     {
-        //
+        $tickets= Ticket::find($id);
+        return view('tickets.show',compact('tickets'));
     }
 
     /**
@@ -56,7 +84,8 @@ class TicketController extends Controller
      */
     public function edit($id)
     {
-        //
+        $tickets= Ticket::find($id);
+        return view('tickets.edit',compact('tickets'));
     }
 
     /**
@@ -79,6 +108,7 @@ class TicketController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Ticket::find($id)->delete();
+        return redirect()->route('tickets.index') ->with('success','Ticket deleted successfully');
     }
 }

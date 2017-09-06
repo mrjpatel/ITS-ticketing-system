@@ -8,15 +8,15 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">ITS</a>
+            <a class="navbar-brand" href="home">ITS</a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="home">Home</a></li>
                 <li><a href="faq">FAQ</a></li>
-                <li><a href="#">Create a Ticket</a></li>
-                <li><a href="#">View Tickets</a></li>
+                <li><a href="createTicket">Create a Ticket</a></li>
+                <li><a href="viewTicket">View Tickets</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->

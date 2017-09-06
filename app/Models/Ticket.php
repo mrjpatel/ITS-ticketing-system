@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Ticket extends Model
 {
-    public $fillable = ['ticketID', 'userID','os','issue','description','status','createdOn'];
+    public $fillable = ['id', 'userID','os','issue','description','status','createdOn'];
 
     public function users() {
         return $this->belongsTo('App\Models\User');

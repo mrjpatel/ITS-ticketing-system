@@ -14,3 +14,6 @@
 Route::get('/','PagesController@home');
 Route::get('home', 'PagesController@home');
 Route::get('faq', 'PagesController@faq');
+Route::resource('tickets','TicketController');
+Route::get('createTicket', 'PagesController@createTicket');
+Route::get('viewTicket', 'PagesController@viewTicket');

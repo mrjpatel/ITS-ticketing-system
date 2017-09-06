@@ -5,8 +5,8 @@
             <ul class="nav nav-pills">
                 <li><a href="home">Home</a></li>
                 <li><a href="faq">FAQ</a></li>
-                <li><a href="#">Create a Ticket</a></li>
-                <li><a href="#">View Tickets</a></li>
+                <li><a href="createTicket">Create a Ticket</a></li>
+                <li><a href="viewTicket">View Tickets</a></li>
             </ul>
         </div>
     </div>

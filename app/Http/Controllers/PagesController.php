@@ -13,4 +13,14 @@ class PagesController extends Controller
     public function faq(){
         return view ('faq');
     }
+
+    public function createTicket(){
+        return view ('tickets.create');
+    }
+
+    public function viewTicket(){
+        return view ('tickets.index');
+    }
+
+
 }

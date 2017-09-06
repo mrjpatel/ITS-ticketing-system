@@ -23,8 +23,8 @@ class CreateCommentsTable extends Migration
         });
 
         Schema::table('comments', function ($table) {
-            $table->foreign('ticketID')->references('ticketID')->on('tickets');
-            $table->foreign('sentBy')->references('userID')->on('users');
+            $table->foreign('ticketID')->references('id')->on('tickets');
+            $table->foreign('sentBy')->references('id')->on('users');
         });
     }
 

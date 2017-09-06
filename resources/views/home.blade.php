@@ -6,7 +6,7 @@
             <div class="jumbotron">
                 <h1>ITS Ticket Submission System</h1>
                 <p>A simple place where all your answers to IT related problems can be found. To get started click on the button.</p>
-                <p><a class="btn btn-primary btn-lg">Create a Ticket</a></p>
+                <p><a class="btn btn-success btn-lg" href="createTicket">Create a Ticket</a></p>
             </div>
         </div>
     </div>
