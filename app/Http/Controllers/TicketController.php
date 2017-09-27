@@ -14,11 +14,11 @@ class TicketController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
-    {
-        $tickets = Ticket::orderBy('id','DESC');
-        return view('tickets.index',compact('tickets'));
-    }
+//    public function index(Request $request)
+//    {
+//        $tickets = Ticket::orderBy('id','DESC');
+//        return view('tickets.index',compact('tickets'));
+//    }
 
     /**
      * Show the form for creating a new resource.
@@ -64,45 +64,45 @@ class TicketController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        $tickets= Ticket::find($id);
-        return view('tickets.show',compact('tickets'));
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        $tickets= Ticket::find($id);
-        return view('tickets.edit',compact('tickets'));
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        Ticket::find($id)->delete();
-        return redirect()->route('tickets.index') ->with('success','Ticket deleted successfully');
-    }
+//    public function show($id)
+//    {
+//        $tickets= Ticket::find($id);
+//        return view('tickets.show',compact('tickets'));
+//    }
+//
+//    /**
+//     * Show the form for editing the specified resource.
+//     *
+//     * @param  int  $id
+//     * @return \Illuminate\Http\Response
+//     */
+//    public function edit($id)
+//    {
+//        $tickets= Ticket::find($id);
+//        return view('tickets.edit',compact('tickets'));
+//    }
+//
+//    /**
+//     * Update the specified resource in storage.
+//     *
+//     * @param  \Illuminate\Http\Request  $request
+//     * @param  int  $id
+//     * @return \Illuminate\Http\Response
+//     */
+//    public function update(Request $request, $id)
+//    {
+//        //
+//    }
+//
+//    /**
+//     * Remove the specified resource from storage.
+//     *
+//     * @param  int  $id
+//     * @return \Illuminate\Http\Response
+//     */
+//    public function destroy($id)
+//    {
+//        Ticket::find($id)->delete();
+//        return redirect()->route('tickets.index') ->with('success','Ticket deleted successfully');
+//    }
 }
