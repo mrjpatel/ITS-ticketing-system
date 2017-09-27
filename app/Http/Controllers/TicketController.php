@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Ticket;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class TicketController extends Controller
 {
@@ -46,13 +47,8 @@ class TicketController extends Controller
         ]);
         $allRequest = $request->all();
 
-        $user = new User;
-        $user->name = $allRequest['name'];
-        $user->email = $allRequest['email'];
-        $user->save();
-
         $tickets = new Ticket;
-        $tickets->userID = $user->id;
+        $tickets->userID = Auth::user()->id;
         $tickets->os = $allRequest['os'];
         $tickets->issue = $allRequest['issue'];
         $tickets->description = $allRequest['description'];

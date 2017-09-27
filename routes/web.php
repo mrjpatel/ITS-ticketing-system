@@ -20,7 +20,6 @@ Route::get('faq', 'PagesController@faq');
 Auth::routes();
 Route::resource('tickets','TicketController');
 Route::get('createTicket', 'PagesController@createTicket');
-//Route::get('viewTicket', 'PagesController@viewTicket');
 
 
 
