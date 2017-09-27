@@ -38,9 +38,8 @@ class TicketController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'fname' => 'required',
-            'lname' => 'required',
-            'email' => 'required',
+            'name' => 'required',
+            'email' => 'required|string|email|max:255',
             'os' => 'required',
             'issue' => 'required',
             'description' => 'required',
@@ -48,8 +47,7 @@ class TicketController extends Controller
         $allRequest = $request->all();
 
         $user = new User;
-        $user->fname = $allRequest['fname'];
-        $user->lname = $allRequest['lname'];
+        $user->name = $allRequest['name'];
         $user->email = $allRequest['email'];
         $user->save();
 

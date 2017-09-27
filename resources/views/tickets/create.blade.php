@@ -1,4 +1,4 @@
-@extends('master')
+@extends('layouts.app')
 @section('title', 'Create a Ticket')
 @section('content')
     <div class = "container">
@@ -32,17 +32,15 @@
         {!! Form::open(['action' => 'TicketController@store','method'=>'POST']) !!}
 
         <div class="form-group">
-            {!! Form::label('fname', 'First Name') !!}
-            {!! Form::text('fname', '', ['class' => 'form-control']) !!}
-        </div>
-        <div class="form-group">
-            {!! Form::label('lname', 'Last Name') !!}
-            {!! Form::text('lname', '', ['class' => 'form-control']) !!}
+            {!! Form::label('name', 'Name') !!}
+            {{--{!! Form::text('name', '', ['class' => 'form-control']) !!}--}}
+            <input value="{{ Auth::user()->name }}" type="text" class="form-control" id="name" name="name">
         </div>
 
         <div class="form-group">
             {!! Form::label('email', 'Email') !!}
-            {!! Form::text('email', '', ['class' => 'form-control']) !!}
+            <input value="{{ Auth::user()->email }}" type="text" class="form-control" id="email" name="email">
+            {{--{!! Form::text('email', '', ['class' => 'form-control']) !!}--}}
         </div>
 
         <div class="form-group">
@@ -59,7 +57,6 @@
             {!! Form::label('description', 'Description') !!}
             {!! Form::textarea('description', '', ['class' => 'form-control']) !!}
         </div>
-
         <button class="btn btn-success" type = "submit">Add Ticket!</button>
         <br><br><br>
         {!! Form::close() !!}

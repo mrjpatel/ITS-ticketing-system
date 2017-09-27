@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class User extends Model
 {
-    public $fillable = ['id', 'fname','lname','email', 'createdOn'];
+    public $fillable = ['id','name','email', 'password' , 'createdOn'];
 
     public function tickets()
     {

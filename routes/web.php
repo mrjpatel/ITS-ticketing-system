@@ -11,9 +11,16 @@
 |
 */
 
-Route::get('/','PagesController@home');
-Route::get('home', 'PagesController@home');
+Route::get('/','PagesController@test');
+Route::get('test', 'PagesController@test');
+
+//Route::get('/home', 'HomeController@index')->name('home');
 Route::get('faq', 'PagesController@faq');
+
+Auth::routes();
 Route::resource('tickets','TicketController');
 Route::get('createTicket', 'PagesController@createTicket');
-Route::get('viewTicket', 'PagesController@viewTicket');
+//Route::get('viewTicket', 'PagesController@viewTicket');
+
+
+
