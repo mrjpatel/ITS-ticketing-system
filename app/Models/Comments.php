@@ -8,7 +8,7 @@ class Comments extends Model
 {
     public $fillable = ['commentID', 'ticketID','sentBy','description', 'createdOn'];
 
-    public function tickets() {
-        return $this->belongsTo('App\Models\Ticket');
-    }
+//    public function tickets() {
+//        return $this->belongsTo('App\Models\Ticket');
+//    }
 }

@@ -11,15 +11,17 @@
 |
 */
 
-Route::get('/','PagesController@test');
-Route::get('test', 'PagesController@test');
+Route::get('/','PagesController@home')->name('home');
+Route::get('home', 'PagesController@home')->name('home');
 
-//Route::get('/home', 'HomeController@index')->name('home');
-Route::get('faq', 'PagesController@faq');
+Route::get('faq', 'PagesController@faq')->name('faq');
 
 Auth::routes();
-Route::resource('tickets','TicketController');
-Route::get('createTicket', 'PagesController@createTicket');
+Route::group(['middleware' => ['auth']], function() {
+    Route::resource('tickets','TicketController');
+    Route::get('createTicket', 'PagesController@createTicket')->name('createTicket');
+});
+
 
 
 

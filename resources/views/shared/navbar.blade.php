@@ -35,15 +35,15 @@
             </button>
 
             <!-- Branding Image -->
-            <a class="navbar-brand" href="test">ITS</a>
+            <a class="navbar-brand" href="{{ route('home') }}">ITS</a>
         </div>
 
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
             <!-- Left Side Of Navbar -->
             <ul class="nav navbar-nav">
-                <li><a href="test">Home</a></li>
-                <li><a href="faq">FAQ</a></li>
-                <li><a href="createTicket">Create a Ticket</a></li>
+                <li><a href="{{ route('home') }}">Home</a></li>
+                <li><a href="{{ route('faq') }}">FAQ</a></li>
+                <li><a href="{{ route('createTicket') }}">Create a Ticket</a></li>
             </ul>
 
             <!-- Right Side Of Navbar -->

@@ -13,19 +13,19 @@ class CreateCommentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('comments', function (Blueprint $table) {
-            $table->increments('commentID');
-            $table->integer('ticketID')->unsigned();
-            $table->integer('sentBy')->unsigned();
-            $table->text('description');
-            $table->timestamp('createdOn');
-            $table->timestamps();
-        });
-
-        Schema::table('comments', function ($table) {
-            $table->foreign('ticketID')->references('id')->on('tickets');
-            $table->foreign('sentBy')->references('id')->on('users');
-        });
+//        Schema::create('comments', function (Blueprint $table) {
+//            $table->increments('commentID');
+//            $table->integer('ticketID')->unsigned();
+//            $table->integer('sentBy')->unsigned();
+//            $table->text('description');
+//            $table->timestamp('createdOn');
+//            $table->timestamps();
+//        });
+//
+//        Schema::table('comments', function ($table) {
+//            $table->foreign('ticketID')->references('id')->on('tickets');
+//            $table->foreign('sentBy')->references('id')->on('users');
+//        });
     }
 
     /**
@@ -35,6 +35,6 @@ class CreateCommentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('comments');
+//        Schema::dropIfExists('comments');
     }
 }

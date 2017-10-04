@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class PagesController extends Controller
 {
-    public function test(){
+    public function home(){
         return view ('home');
     }
 
@@ -17,18 +17,4 @@ class PagesController extends Controller
     public function createTicket(){
         return view ('tickets.create');
     }
-
-//    public function login(){
-//        return view ('auth.login');
-//    }
-//
-//    public function register(){
-//        return view ('auth.register');
-//    }
-
-//    public function viewTicket(){
-//        return view ('tickets.index');
-//    }
-
-
 }

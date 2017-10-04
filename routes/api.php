@@ -17,21 +17,4 @@ use Illuminate\Http\Request;
 //    return $request->user();
 //});
 
-Route::group(['middleware' => 'cors'], function () {
-
-// List
-    Route::get('tickets/list','TicketAPIController@index');
-
-// Show
-    Route::get('tickets/{id}', 'TicketAPIController@show');
-
-// Store
-    Route::post('tickets', 'TicketAPIController@store');
-
-// Update
-    Route::post('tickets/{id}/update', 'TicketAPIController@update');
-
-// Delete
-    Route::get('tickets/{id}/delete', 'TicketAPIController@destroy');
-
-});
+Route::middleware('cors')->get('tickets','TicketAPIController@fetch');

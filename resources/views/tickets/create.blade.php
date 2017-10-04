@@ -54,8 +54,8 @@
         </div>
 
         <div class="form-group">
-            {!! Form::label('description', 'Description') !!}
-            {!! Form::textarea('description', '', ['class' => 'form-control']) !!}
+            {!! Form::label('Comment', 'Comment') !!}
+            {!! Form::textarea('comment', '', ['class' => 'form-control']) !!}
         </div>
         <button class="btn btn-success" type = "submit">Add Ticket!</button>
         <br><br><br>
