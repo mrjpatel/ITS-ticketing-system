@@ -12,12 +12,10 @@ use Illuminate\Support\Facades\DB;
 class TicketAPIController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+     * Display a listing of the tickets.
+    */
     public function fetch(){
-
+        //pulling only required value from database
         $tickets = DB::table('tickets')
                         ->join('users', 'userID', '=', 'users.id')
                         ->select('tickets.id', 'users.name', 'tickets.os',
@@ -25,25 +23,24 @@ class TicketAPIController extends Controller
                             'tickets.escalationLevel', 'tickets.createdOn')
                          ->orderBy('tickets.createdOn', 'desc')
                         ->get();
-
+        //sending values to API in JSON
         return response()->json($tickets);
-//        $tickets = Ticket::orderBy('created_at', 'DESC')->get();
-//        return response()->json($tickets);
     }
 
     public function index() {
-//        $tickets= Ticket::all();
-//        return $tickets;
+        //pulling only required value from database
         $tickets = DB::table('tickets')
             ->join('users', 'userID', '=', 'users.id')
             ->select('tickets.id', 'users.name', 'tickets.os',
                 'tickets.issue', 'tickets.comment', 'tickets.status', 'tickets.createdOn')
             ->orderBy('tickets.createdOn', 'desc')
             ->get();
-
+        //sending values to API in JSON
         return response()->json($tickets);
     }
 
+
+//    Storing tickets to the table
     public function store(Request $request)
     {
         try {
@@ -62,21 +59,21 @@ class TicketAPIController extends Controller
                 return array("status" => "ERROR");
             }
         }
-
         catch(Exception $e) {
             return array("status" => "ERROR");
         }
-
         return array("status" => "SUCCESS");
     }
 
 
+//    show tickets
     public function show($id)
     {
         $tickets = Ticket::find($id);
         return $tickets;
     }
 
+//    Updating the tickets in the table from API
     public function update(Request $request, $id)
     {
         try {
@@ -98,6 +95,7 @@ class TicketAPIController extends Controller
         return array("status" => "SUCCESS");;
     }
 
+//    destroying tickets
     public function destroy($id)
     {
         try {
@@ -111,7 +109,6 @@ class TicketAPIController extends Controller
         catch(Exception $e) {
             return array("status" => "ERROR");
         }
-
         return array("status" => "SUCCESS");;
     }
 }

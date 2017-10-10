@@ -7,10 +7,8 @@ use Illuminate\Database\Migrations\Migration;
 class CreateTicketsTable extends Migration
 {
     /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+     * Run the migrations. Creating tables in SQL
+    */
     public function up()
     {
         Schema::create('tickets', function (Blueprint $table) {
@@ -26,6 +24,7 @@ class CreateTicketsTable extends Migration
             $table->timestamps();
         });
 
+        //Getting userID from Users Table
         Schema::table('tickets', function ($table) {
             $table->foreign('userID')
                 ->references('id')
@@ -35,8 +34,6 @@ class CreateTicketsTable extends Migration
 
     /**
      * Reverse the migrations.
-     *
-     * @return void
      */
     public function down()
     {

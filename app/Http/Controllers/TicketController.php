@@ -10,26 +10,18 @@ class TicketController extends Controller
 {
     /**
      * Show the form view for creating a new ticket.
-     *
-     * @return \Illuminate\Http\Response
      */
     public function create()
     {
-//        if(Auth::check()){
-            return view('tickets.create');
-//        }
-//
-//        return redirect('auth.login');
+        return view('tickets.create');
     }
 
     /**
-     * Store a newly created resource in database.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * Store a newly created ticket in database
      */
     public function store(Request $request)
     {
+        //validation
         $this->validate($request, [
             'name' => 'required',
             'email' => 'required|string|email|max:255',

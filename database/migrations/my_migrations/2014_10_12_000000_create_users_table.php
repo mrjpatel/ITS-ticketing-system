@@ -7,9 +7,7 @@ use Illuminate\Database\Migrations\Migration;
 class CreateUsersTable extends Migration
 {
     /**
-     * Run the migrations.
-     *
-     * @return void
+     * Run the migrations. Creating tables in SQL
      */
     public function up()
     {
@@ -25,9 +23,7 @@ class CreateUsersTable extends Migration
     }
 
     /**
-     * Reverse the migrations.
-     *
-     * @return void
+     * Reverse the migrations. Drop tables
      */
     public function down()
     {

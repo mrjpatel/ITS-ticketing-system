@@ -13,17 +13,20 @@ use Illuminate\Support\Facades\DB;
 
 class CommentAPIController extends Controller
 {
+//    Fetching Comments from table
     public function fetch(){
 
         $comments= Comments::all();
         return $comments;
     }
 
+//    Fetching Comments from table
     public function index() {
         $comments= Comments::all();
         return $comments;
     }
 
+//    Storing Comments to the table
     public function store(Request $request)
     {
         try {
@@ -31,34 +34,30 @@ class CommentAPIController extends Controller
             $comments->ticketID = $request->ticketID;
             $comments->description = $request->description;
             $saved = $comments->save();
-
             if(!$saved){
                 return array("status" => "ERROR");
             }
         }
-
         catch(Exception $e) {
             return array("status" => "ERROR");
         }
-
         return array("status" => "SUCCESS");
     }
 
-
+//    Showing the Comments
     public function show($id)
     {
         $comments = Comments::find($id);
         return $comments;
     }
 
+//    Updating the Comments in the table from API
     public function update(Request $request, $id)
     {
         try {
             $comments = Comments::find($id);
             $comments->description = $request->description;
-
             $saved = $comments->save();
-
             if(!$saved){
                 return array("status" => "ERROR");
             }
@@ -66,10 +65,10 @@ class CommentAPIController extends Controller
         catch(Exception $e) {
             return array("status" => "ERROR");
         }
-
         return array("status" => "SUCCESS");;
     }
 
+//    Deleting Comments
     public function destroy($id)
     {
         try {
@@ -83,7 +82,6 @@ class CommentAPIController extends Controller
         catch(Exception $e) {
             return array("status" => "ERROR");
         }
-
         return array("status" => "SUCCESS");;
     }
 }

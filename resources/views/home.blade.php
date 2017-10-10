@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('title','Home')
 @section('content')
+    <!-- A static home page view -->
     <div class = "content">
         <div class = "container">
             <div class="jumbotron">

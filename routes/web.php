@@ -11,11 +11,14 @@
 |
 */
 
+//route for home page
 Route::get('/','PagesController@home')->name('home');
 Route::get('home', 'PagesController@home')->name('home');
 
+//route for faq page
 Route::get('faq', 'PagesController@faq')->name('faq');
 
+//routes for tickets page
 Auth::routes();
 Route::group(['middleware' => ['auth']], function() {
     Route::resource('tickets','TicketController');

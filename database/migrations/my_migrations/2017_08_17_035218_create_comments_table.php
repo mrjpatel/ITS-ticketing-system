@@ -7,10 +7,8 @@ use Illuminate\Database\Migrations\Migration;
 class CreateCommentsTable extends Migration
 {
     /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+     * Run the migrations. Create tabel to SQL
+    */
     public function up()
     {
         Schema::create('comments', function (Blueprint $table) {
@@ -21,18 +19,17 @@ class CreateCommentsTable extends Migration
             $table->timestamps();
         });
 
+        //Getting TicketID from Tickets Table
         Schema::table('comments', function ($table) {
             $table->foreign('ticketID')->references('id')->on('tickets');
         });
     }
 
     /**
-     * Reverse the migrations.
-     *
-     * @return void
+     * Reverse the migrations. Drop Tables
      */
     public function down()
     {
-//        Schema::dropIfExists('comments');
+        Schema::dropIfExists('comments');
     }
 }

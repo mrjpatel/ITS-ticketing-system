@@ -10,6 +10,7 @@
             </div>
         </div>
 
+        {{--session for displaying message when the ticket is submitted--}}
         @if (count($errors) > 0)
             <div class="alert alert-danger alert-dismissable">
                 <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
@@ -29,34 +30,40 @@
             </div>
         @endif
 
+        {{--Create Ticket Form--}}
         {!! Form::open(['action' => 'TicketController@store','method'=>'POST']) !!}
 
+        {{--Name--}}
         <div class="form-group">
             {!! Form::label('name', 'Name') !!}
             {{--{!! Form::text('name', '', ['class' => 'form-control']) !!}--}}
             <input value="{{ Auth::user()->name }}" type="text" class="form-control" id="name" name="name">
         </div>
 
+        {{--Email--}}
         <div class="form-group">
             {!! Form::label('email', 'Email') !!}
             <input value="{{ Auth::user()->email }}" type="text" class="form-control" id="email" name="email">
-            {{--{!! Form::text('email', '', ['class' => 'form-control']) !!}--}}
         </div>
 
+        {{--Operating System--}}
         <div class="form-group">
             {!! Form::label('os', 'Operating System') !!}
             {!! Form::text('os', '', ['class' => 'form-control']) !!}
         </div>
 
+        {{--Issue--}}
         <div class="form-group">
             {!! Form::label('issue', 'Issue') !!}
             {!! Form::text('issue', '', ['class' => 'form-control']) !!}
         </div>
 
+        {{--Description--}}
         <div class="form-group">
             {!! Form::label('description', 'Description') !!}
             {!! Form::textarea('description', '', ['class' => 'form-control']) !!}
         </div>
+        {{--Submit--}}
         <button class="btn btn-success" type = "submit">Add Ticket!</button>
         <br><br><br>
         {!! Form::close() !!}

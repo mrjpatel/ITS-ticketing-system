@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('title', 'FAQ')
 @section('content')
+    <!-- A static faq page view -->
     <div class="container">
         <h2>F.A.Q</h2>
         <h4>Frequently Asked Questions</h4>
