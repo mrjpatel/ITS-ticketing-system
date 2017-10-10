@@ -21,9 +21,13 @@ class CommentsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+//        Comment::create([
+//            'ticket_id' => $request->ticket_id,
+//            'description'   => $request->comment
+//        ]);
+//        return view('tickets.track');
     }
 
     /**
@@ -34,7 +38,7 @@ class CommentsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
     }
 
     /**

@@ -18,8 +18,10 @@ class CreateTicketsTable extends Migration
             $table->integer('userID')->unsigned();
             $table->string('os');
             $table->string('issue');
-            $table->text('comment');
+            $table->text('description');
             $table->string('status');
+            $table->string('priority');
+            $table->string('escalationLevel');
             $table->timestamp('createdOn');
             $table->timestamps();
         });

@@ -35,7 +35,7 @@ class TicketController extends Controller
             'email' => 'required|string|email|max:255',
             'os' => 'required',
             'issue' => 'required',
-            'comment' => 'required',
+            'description' => 'required',
         ]);
         $allRequest = $request->all();
 
@@ -43,8 +43,10 @@ class TicketController extends Controller
         $tickets->userID = Auth::user()->id;
         $tickets->os = $allRequest['os'];
         $tickets->issue = $allRequest['issue'];
-        $tickets->comment = $allRequest['comment'];
+        $tickets->description = $allRequest['description'];
         $tickets->status = 'Pending';
+        $tickets->priority = '';
+        $tickets->escalationLevel = '';
         $tickets->save();
 
         return redirect()->route('tickets.create') ->with('success','Ticket created successfully');

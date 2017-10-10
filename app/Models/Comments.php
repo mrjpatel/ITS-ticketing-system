@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Comments extends Model
 {
-    public $fillable = ['commentID', 'ticketID','sentBy','description', 'createdOn'];
+    public $fillable = ['id', 'ticketID','description', 'createdOn'];
 
-//    public function tickets() {
-//        return $this->belongsTo('App\Models\Ticket');
-//    }
+    public function tickets() {
+        return $this->belongsTo('App\Models\Ticket');
+    }
 }
